@@ -2,6 +2,10 @@ trigger:
 - '*'
 
 pool:
+<<<<<<< HEAD
+=======
+  name: Default
+>>>>>>> 17b81953e105abd24285cc3ce23ff0b0e59a0652
   vmImage: 'ubuntu-20.04'
   demands:
   - npm
