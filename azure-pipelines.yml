@@ -31,15 +31,19 @@ steps:
 - script: './node_modules/.bin/node-sass $(wwwrootDir) --output $(wwwrootDir)'
   displayName: 'Compile Sass assets'
 
-# Ejecutar tareas de gulp
-- script: 'gulp'
+# Instalar Gulp globalmente (opcional)
+- script: 'npm install -g gulp'
+  displayName: 'Install gulp globally'
+
+# Ejecutar tareas de Gulp desde node_modules
+- script: './node_modules/.bin/gulp'
   displayName: 'Run gulp tasks'
 
 # Escribir información de compilación
 - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
   displayName: 'Write build info'
   workingDirectory: $(wwwrootDir)
-  
+
 - task: DotNetCoreCLI@2
   displayName: 'Restore project dependencies'
   inputs:
